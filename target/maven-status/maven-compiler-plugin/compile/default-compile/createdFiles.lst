@@ -1,1 +1,5 @@
+ua\kursova\servlet\AuthorizationServlet.class
+ua\kursova\controller\UserController.class
+ua\kursova\servlet\RegisterServlet.class
+ua\kursova\servlet\MainServlet.class
 ua\kursova\models\User.class

@@ -4,4 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MainServlet</servlet-name>
+  	<display-name>MainServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.MainServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AuthorizationServlet</servlet-name>
+  	<display-name>AuthorizationServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.AuthorizationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MainServlet</servlet-name>
+  	<url-pattern>/MainServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AuthorizationServlet</servlet-name>
+  	<url-pattern>/AuthorizationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

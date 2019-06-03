@@ -19,10 +19,31 @@
 			</form>
 		</td>
 		<td>
-			<a href="#" class="header-summery">Make the summary</a>
+		<c:if test="${sessionScope.user==null}">
+		<a href="./AuthorizationServlet" class="header-summery">Make the summary</a>
+		</c:if>
 		</td>
 		<td>
-			<a href="#" class="header-reg">Register</a>
+		<a href="./MainServlet">Main</a>
+			<c:if test='${sessionScope.user == null }'>
+				<a href="./RegisterServlet">Registrate</a>
+				<a href="./AuthorizationServlet">Login</a>
+			</c:if>
+			<c:if test='${sessionScope.user != null }'>
+				<c:if test="${sessionScope.user.position=='Employee'}">
+					<a href="./SummeryServlet">Make the summery</a>
+					User:${sessionScope.user.name}
+					<a href = '?logout=1' class='logOut'>
+						&#9032
+				</c:if>
+				<c:if test="${sessionScope.user.position=='Employer'}">
+					<a href="./VacationServlet">Make the vacation</a>
+					User:${sessionScope.user.name}
+					<a href = '?logout=1' class='logOut'>
+						&#9032
+				</c:if>
+			</c:if>
+		</ul>
 		</td>
 
 

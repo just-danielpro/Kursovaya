@@ -5,11 +5,14 @@
 
 <content>
 	<center>
-			<form action="" method='post'>
+	<c:if test='${form}'>
+		<form action="" method='post'>
+		<table>
 				<table>
+				<td>
 					<tr>
 						<td>Your email</td>
-						<td><input type='email' name='login' value='${login}' /></td>
+						<td><input type='email' name='login' value='${email}' /></td>
 					</tr>
 					<tr>
 						<td>Your name</td>
@@ -25,11 +28,11 @@
 					</tr>
 					<tr>
 						<td>Your password</td>
-						<td><input type='password' name='password' value='${login}' /></td>
+						<td><input type='password' name='password' /></td>
 					</tr>
 					<tr>
 						<td>Confirm password</td>
-						<td><input type='password' name='confirmPassword' value='${login}' /></td>
+						<td><input type='password' name='confirmPassword'/></td>
 					</tr>
 					<tr>
 							<td>Gender</td>
@@ -39,7 +42,7 @@
 						</tr>
 						<tr>
 							<td>City</td>
-							<td><select name="address">
+							<td><select name="city">
 									<option value='1' ${address1}>Kyiv</option>
 									<option value='2'${address2}>Poltava</option>
 									<option value='3'${address3}>Odesa</option>
@@ -53,18 +56,23 @@
 						</tr>
 						<tr>
 							<td>Your position</td>
-							<td>Employee<input type='radio' name='worker' value='Employe' ${genderM}/>
-								Employer<input type='radio' name='worker' value='Employer' ${genderF}/>
+							<td>Employee<input type='radio' name='worker' value='Employee' ${workerEmployee}/>
+								Employer<input type='radio' name='worker' value='Employer' ${workerEmployer}/>
 							</td>
 						</tr>
 						<tr>
-							<td>Employee<input type='submit' name='worker' value='Register' ${genderM}/></td>
+							<td><input type='submit' name='button' value='Register'/></td>
 						</tr>
+					</td>
+					<td><c:if test="${isError}">${errorText}</c:if></td>
 				</table>
+			</table>
 			</form>
 	</center>
 	
-</content>
+</content>	
+	</c:if>
+	<td><c:if test="${thankful}">${thanks}</c:if></td>
 
 
 
