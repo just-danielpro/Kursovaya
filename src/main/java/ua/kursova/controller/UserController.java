@@ -33,7 +33,7 @@ public class UserController {
 		}
 		System.out.print("Connection.....");
 		try {
-			ResourceBundle config = ResourceBundle.getBundle("usercontroller");
+			ResourceBundle config = ResourceBundle.getBundle("connection");
 			conn = DriverManager.getConnection("jdbc:mysql://" + config.getString("host") + "/" + config.getString("db")
 					+ "?" + "user=" + config.getString("user") + "&password=" + config.getString("psw"));
 			System.out.println("obtained");
@@ -67,6 +67,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 	}
+
 
 	public boolean checkEmail(String email) {
 		Statement st;
@@ -113,6 +114,8 @@ public class UserController {
 			
 		return user;
 	}
+	
+
 	public User getUser(int id) {
 		User user = new User();
 		PreparedStatement pr;
@@ -140,7 +143,7 @@ public class UserController {
 			if (session != null) {
 				session.invalidate();
 				try {
-					response.sendRedirect(request.getContextPath() + request.getServletPath());
+					response.sendRedirect(request.getContextPath() + "/MainServlet");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

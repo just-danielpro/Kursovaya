@@ -22,6 +22,48 @@
   	<description></description>
   	<servlet-class>ua.kursova.servlet.AuthorizationServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SummeryServlet</servlet-name>
+  	<display-name>SummeryServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.SummeryServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PersonalStorageServlet</servlet-name>
+  	<display-name>PersonalStorageServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.PersonalStorageServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckServlet</servlet-name>
+  	<display-name>CheckServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.CheckServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterEmployerServlet</servlet-name>
+  	<display-name>RegisterEmployerServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.RegisterEmployerServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>VacationServlet</servlet-name>
+  	<display-name>VacationServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.VacationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckServlet2</servlet-name>
+  	<display-name>CheckServlet2</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.CheckServlet2</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AuthorizationEmployerServlet</servlet-name>
+  	<display-name>AuthorizationEmployerServlet</display-name>
+  	<description></description>
+  	<servlet-class>ua.kursova.servlet.AuthorizationEmployerServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -33,5 +75,33 @@
   <servlet-mapping>
   	<servlet-name>AuthorizationServlet</servlet-name>
   	<url-pattern>/AuthorizationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SummeryServlet</servlet-name>
+  	<url-pattern>/SummeryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PersonalStorageServlet</servlet-name>
+  	<url-pattern>/PersonalStorageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckServlet</servlet-name>
+  	<url-pattern>/CheckServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterEmployerServlet</servlet-name>
+  	<url-pattern>/RegisterEmployerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>VacationServlet</servlet-name>
+  	<url-pattern>/VacationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckServlet2</servlet-name>
+  	<url-pattern>/CheckServlet2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AuthorizationEmployerServlet</servlet-name>
+  	<url-pattern>/AuthorizationEmployerServlet</url-pattern>
   </servlet-mapping>
 </web-app>

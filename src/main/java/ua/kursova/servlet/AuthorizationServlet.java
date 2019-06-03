@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ua.kursova.controller.UserController;
+import ua.kursova.controller.UserEmployerController;
 
 /**
  * Servlet implementation class AuthorizationServlet
@@ -30,10 +31,16 @@ public class AuthorizationServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		boolean form = true;
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/loginPage.jsp");
-		UserController.logout(request, session, response);
 		request.setAttribute("form", form);
+		UserController.logout(request, session, response);
 		request.setAttribute("session", session);
-		rd.forward(request, response);
+		try 
+		{
+			rd.forward(request, response);
+		}catch(Exception e) 
+		{
+			e.printStackTrace();
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,6 +50,7 @@ public class AuthorizationServlet extends HttpServlet {
 		System.out.println(password);
 		boolean form = true;
 		UserController uc = new UserController();
+		UserEmployerController uec = new UserEmployerController();
 		HttpSession session = request.getSession();
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/loginPage.jsp");
 		session = request.getSession();
@@ -52,7 +60,8 @@ public class AuthorizationServlet extends HttpServlet {
 			session.setAttribute("user", uc.checkUser(email, password));
 			request.setAttribute("session", session);
 			request.setAttribute("form", false);
-		}else 
+		}
+		else
 		{
 			errorText.append("<li>User not found</li>");
 			request.setAttribute("form", true);

@@ -16,15 +16,15 @@
 					</tr>
 					<tr>
 						<td>Your name</td>
-						<td><input type='text' name='name' value='${login}' /></td>
+						<td><input type='text' name='name' /></td>
 					</tr>
 					<tr>
 						<td>Your surname</td>
-						<td><input type='text' name='surName' value='${login}' /></td>
+						<td><input type='text' name='surName'/></td>
 					</tr>
 					<tr>
 						<td>Your age</td>
-						<td><input type='number' name='age' value='${login}' /></td>
+						<td><input type='number' name='age' /></td>
 					</tr>
 					<tr>
 						<td>Your password</td>
@@ -43,22 +43,18 @@
 						<tr>
 							<td>City</td>
 							<td><select name="city">
-									<option value='1' ${address1}>Kyiv</option>
-									<option value='2'${address2}>Poltava</option>
-									<option value='3'${address3}>Odesa</option>
-									<option value='4' ${address4}>Zhytomyr</option>
-									<option value='5'${address5}>Dnipro</option>
-									<option value='6'${address6}>Lviv</option>\
-									<option value='7' ${address7}>Kharkov</option>
-									<option value='8'${address8}>Rovno</option>
-									<option value='9'${address9}>Mariupol</option>
+									<option value='Kyiv' ${address1}>Kyiv</option>
+									<option value='Poltava'${address2}>Poltava</option>
+									<option value='Odesa'${address3}>Odesa</option>
+									<option value='Zhytomyr'${address4}>Zhytomyr</option>
+									<option value='Dnipro'${address5}>Dnipro</option>
+									<option value='Lviv'${address6}>Lviv</option>\
+									<option value='Kharkov' ${address7}>Kharkov</option>
+									<option value='Rovno'${address8}>Rovno</option>
+									<option value='Mariupol'${address9}>Mariupol</option>
 							</select></td>
 						</tr>
 						<tr>
-							<td>Your position</td>
-							<td>Employee<input type='radio' name='worker' value='Employee' ${workerEmployee}/>
-								Employer<input type='radio' name='worker' value='Employer' ${workerEmployer}/>
-							</td>
 						</tr>
 						<tr>
 							<td><input type='submit' name='button' value='Register'/></td>
@@ -72,6 +68,7 @@
 	
 </content>	
 	</c:if>
+	
 	<td><c:if test="${thankful}">${thanks}</c:if></td>
 
 

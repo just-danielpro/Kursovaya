@@ -32,9 +32,12 @@ public class RegisterServlet extends HttpServlet {
 		boolean form = true;
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/registerPage.jsp");
 		request.setAttribute("form", form);
-		request.setAttribute("session", session);
 		UserController.logout(request, session,response);
-		rd.forward(request, response);
+		request.setAttribute("session", session);
+		try {
+			rd.forward(request, response);
+		} catch (IllegalStateException ex) {
+		}
 	}
 
 	
@@ -50,7 +53,6 @@ public class RegisterServlet extends HttpServlet {
 		String age = request.getParameter("age");
 		String gender = request.getParameter("gender");
 		String city = request.getParameter("city");
-		String position = request.getParameter("worker");
 		boolean form = true;
 		boolean error = false;
 		StringBuilder errorText = new StringBuilder("<font color = 'red'> <ul>");
@@ -91,11 +93,7 @@ public class RegisterServlet extends HttpServlet {
 				error = true;
 				errorText.append("<li>Address empty</li>");
 			}
-			if (position == null || position.length() == 0) {
-				error = true;
-				errorText.append("<li>Position not selected</li>");
-			}
-			if (!uc.checkEmail(email)) {
+			if (uc.checkEmail(email)) {
 				errorText.append("<li>Such email already exists</li>");
 				error = true;
 			}
@@ -113,22 +111,22 @@ public class RegisterServlet extends HttpServlet {
 				}
 				request.setAttribute("city", city);
 				if(city != null) {
-					request.setAttribute("address1", (Integer.parseInt(city)) == 1 ? "selected" : "");
-					request.setAttribute("address2", (Integer.parseInt(city)) == 2 ? "selected" : "");
-					request.setAttribute("address3", (Integer.parseInt(city)) == 3 ? "selected" : "");
-					request.setAttribute("address4", (Integer.parseInt(city)) == 4 ? "selected" : "");
-					request.setAttribute("address5", (Integer.parseInt(city)) == 5 ? "selected" : "");
-					request.setAttribute("address6", (Integer.parseInt(city)) == 6 ? "selected" : "");
-					request.setAttribute("address7", (Integer.parseInt(city)) == 7 ? "selected" : "");
-					request.setAttribute("address8", (Integer.parseInt(city)) == 8 ? "selected" : "");
-					request.setAttribute("address9", (Integer.parseInt(city)) == 9 ? "selected" : "");
+					request.setAttribute("address1", city.equals("Kyiv") ? "selected" : "");
+					request.setAttribute("address2", city.equals("Poltava") ? "selected" : "");
+					request.setAttribute("address3", city.equals("Odesa") ? "selected" : "");
+					request.setAttribute("address4", city.equals("Zhytomyr") ? "selected" : "");
+					request.setAttribute("address5", city.equals("Dnipro")? "selected" : "");
+					request.setAttribute("address6", city.equals("Lviv")? "selected" : "");
+					request.setAttribute("address7", city.equals("Kharkov") ? "selected" : "");
+					request.setAttribute("address8", city.equals("Rovno")? "selected" : "");
+					request.setAttribute("address9", city.equals("Mariupol")? "selected" : "");
 				}
 				request.setAttribute("errorText", errorText.toString());
 				request.setAttribute("isError", error);
 				request.setAttribute("form", form);
 			} else {
 				form = false;
-				uc.insert(email, password, name,surName,age, gender, position,city);
+					uc.insert(email, password, name,surName,age, gender, "Employee",city);
 				boolean thankful = true;
 				request.setAttribute("thanks","Thanks for your register");
 				request.setAttribute("thankful", true);
