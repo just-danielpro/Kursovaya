@@ -6,11 +6,11 @@
 	<tr>
 		<td class="header-title">Robotyaga.ua</td>
 		<td >
-			<form action="" method="post">
+			<form action="./MainServlet" method="get">
 					<table>
 						<tr>
 							<td class="header-search">
-								<input type="text" name="t1">
+								<input type="text" name="t1"/> <input type='submit' name='button' value='&#767'/>
 
 							</td>
 						</tr>

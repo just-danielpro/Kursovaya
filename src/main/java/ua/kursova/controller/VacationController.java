@@ -52,6 +52,8 @@ public class VacationController {
 		
 		
 	}
+	
+
 	public void deleteVacationById(int id) 
 	{
 		String delete_by_id = "DELETE FROM kursova.vacation WHERE vacation.id = "+id+";";
@@ -82,6 +84,25 @@ public class VacationController {
 	public   List<Vacation> showAllVacationById(int id)
 	{
 		String GET_ALL_SUMMERRYS_BY_ID = "SELECT * FROM vacation WHERE user_id ="+id;
+		List<Vacation>list = new ArrayList<>();
+		try {
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(GET_ALL_SUMMERRYS_BY_ID);
+			while(rs.next()) 
+			{
+				list.add(new Vacation(rs.getInt("id"),rs.getString("name"),rs.getString("description")));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+				
+	}
+	public   List<Vacation> showAllVacationByName(String name)
+	{
+		String GET_ALL_SUMMERRYS_BY_ID = "SELECT * FROM vacation WHERE name LIKE "+"'%"+name+"%'";
 		List<Vacation>list = new ArrayList<>();
 		try {
 			Statement st = conn.createStatement();

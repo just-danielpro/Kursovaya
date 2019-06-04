@@ -54,7 +54,6 @@ public class PersonalStorageServlet extends HttpServlet {
 				if(list.size() > 0) 
 				{
 					request.setAttribute("list", list);
-					UserController.logout(request, session,response);
 				}
 				
 		}else 
@@ -64,10 +63,9 @@ public class PersonalStorageServlet extends HttpServlet {
 			if(list.size() > 0) 
 			{
 				request.setAttribute("list", list);
-				UserController.logout(request, session,response);
 			}
 		}
-		
+		UserController.logout(request, session,response);
 		request.setAttribute("session", session);
 		try {
 			rd.forward(request, response);
