@@ -34,7 +34,7 @@ public class VacationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/summeryBuilderPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/vacationBuildPage.jsp");
 		request.setAttribute("form", true);
 		UserController.logout(request, session,response);
 		request.setAttribute("session", session);

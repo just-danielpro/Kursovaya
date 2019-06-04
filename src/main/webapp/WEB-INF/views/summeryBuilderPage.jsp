@@ -12,7 +12,7 @@
 					<td><input type='text' name='title' value = '${title}'/></td>
 				</tr>
 				<tr>
-					<td>Descriotion</td>
+					<td>Description</td>
 					<td><textarea cols='20' rows='10' name='desc' value='${desc}'></textarea></td>
 				</tr>
 				<tr>

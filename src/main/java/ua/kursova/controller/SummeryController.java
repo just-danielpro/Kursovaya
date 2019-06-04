@@ -55,6 +55,17 @@ public class SummeryController {
 		
 	}
 	
+	public void deleteSummeryById(int id) 
+	{
+		String delete_by_id = "DELETE FROM kursova.summery WHERE summery.id ="+id+";";
+		try {
+			Statement st = conn.createStatement();
+			st.executeUpdate(delete_by_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public Summery getSummeyById(int id) 
 	{
 		Statement st = null;

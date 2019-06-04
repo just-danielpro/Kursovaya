@@ -33,7 +33,9 @@
 				<table>
 					<c:forEach items="${list}" var="str">
 					<tr>
-						<td>${str.name} <input type="submit" name="Submit" value="desc" onclick="showAlert('${str.description}')"></td>
+						<td>${str.name} <input type="submit" name="Submit" value="desc" onclick="showAlert('${str.description}')">
+						<c:if test='${sessionScope.user!=null}'><a href='./PersonalStorageServlet?deleteSummery=${str.id}'>Delete</a></c:if>
+						<c:if test='${sessionScope.userEmployer!=null}'><a href='./PersonalStorageServlet?deleteVacation=${str.id}'>Delete</a></c:if></td>
 					</tr>
 				</c:forEach>
 				</table>

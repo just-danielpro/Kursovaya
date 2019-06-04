@@ -36,7 +36,7 @@
 			</c:if>
 			<c:if test="${sessionScope.userEmployer!=null and sessionScope.user == null}">
 					<a href="./VacationServlet">Make the vacation</a>
-					<a href="./PersonalStorageServlet">"User:${sessionScope.userEmployer.name}</a>
+					<a href="./PersonalStorageServlet">User:${sessionScope.userEmployer.name}</a>
 					<a href = '?logout=1' class='logOut'>
 						&#9032</a>
 				</c:if>

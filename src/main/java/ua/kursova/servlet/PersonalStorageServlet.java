@@ -38,6 +38,15 @@ public class PersonalStorageServlet extends HttpServlet {
 		SummeryController sc = new SummeryController();
 		VacationController vc = new VacationController();
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/personalStoragePage.jsp");
+		System.out.println(request.getParameter("deleteSummery"));
+		if(request.getParameter("deleteSummery") != null) 
+		{
+			sc.deleteSummeryById(Integer.parseInt(request.getParameter(("deleteSummery"))));
+		}
+		if(request.getParameter("deleteVacation")!=null) 
+		{
+			vc.deleteVacationById(Integer.parseInt(request.getParameter(("deleteVacation"))));
+		}
 		if(session.getAttribute("user")!=null) 
 		{
 			User user = (User) session.getAttribute("user");
@@ -47,6 +56,7 @@ public class PersonalStorageServlet extends HttpServlet {
 					request.setAttribute("list", list);
 					UserController.logout(request, session,response);
 				}
+				
 		}else 
 		{
 			UserEmployer user = (UserEmployer) session.getAttribute("userEmployer");

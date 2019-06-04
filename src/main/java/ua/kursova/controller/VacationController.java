@@ -52,7 +52,17 @@ public class VacationController {
 		
 		
 	}
-	
+	public void deleteVacationById(int id) 
+	{
+		String delete_by_id = "DELETE FROM kursova.vacation WHERE vacation.id = "+id+";";
+		try {
+			Statement st = conn.createStatement();
+			st.executeUpdate(delete_by_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public Vacation getVacationById(int id) 
 	{
 		Statement st = null;

@@ -29,7 +29,7 @@
 			</table>
 			</c:if>
 			<c:if test='${!form}'>
-				Welcome Back  ${sessionScope.user.name}
+				Welcome Back  ${sessionScope.userEmployer.name}
 			</c:if>
 			
 	</center>
